@@ -1,7 +1,7 @@
 XeroAccess
 ==========
 
-PHP based Access Control System
+Stealth PHP based Access Control System
 
 Admin Login Protection
 ======================
@@ -58,7 +58,7 @@ The `$profile` array contains all the required auth information from the user.
 
 IP Address Conditions : 
 
-If `remote_addr` is empty the script will exit silently. Any access attempts with x_forwarded / proxy headers etc are automatically denied.
+If `remote_addr` is empty the script will exit silently. Any access attempts with proxy / X_FORWARDED headers etc are automatically denied.
 
 By default IPv6 connections are also denied. 
 
@@ -86,7 +86,7 @@ $profile = array(
 );
 ```
 
-No error messages should be returned ^ since this is a stealth ninja script and ninjas must be quiet to avoid detection.
+No error messages should be returned ^ since this is a stealth ninja script and ninja's must be quiet to avoid detection.
 
 
 Request Key Auth Code
