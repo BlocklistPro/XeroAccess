@@ -9,8 +9,10 @@ Admin Login Protection
 XeroAccess was designed to make life difficult for unauthorised users who want access to your admin control panel 
 by brute forcing or exploiting the administrator login form / login system.
 
-I needed this since the default login dir/page for the most common CMS and forums ( Joomla, IPB, Vbulletin, Wordpress etc ) 
-are very well known and by default do not even try to stop hackers from attempting to brute force the login as much as they like. 
+I needed this for extra login protection, since the default login dir/page for the most common CMS and forums ( Joomla, IPB, Vbulletin, Wordpress etc ) 
+are very well known and by default do not even try to stop hackers from attempting to brute force the login as much / for as long as they like. 
+
+Banning IP's `after` someone attacks the login page is useless since dynamic IP's allow someone to have a new IP just by turning their modem/router off and on. 
 
 Default Response
 ----------------
