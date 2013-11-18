@@ -105,14 +105,15 @@ include XA_BASEPATH . 'xeroaccess.php';
 ```
 
 Errors : 
--------
+--------
 
-If you want to prevent access to the login page altogther if xeroaccess.php cannot be loaded, change include to require. ( probably not a good idea though :) )
-If you have errors with loading xeroaccess.php more than once, change include to include_once , or require to require_once.
+If you want to prevent access to the login page altogther if xeroaccess.php cannot be loaded, change include to require.( probably not a good idea though :) )
 
-Display Errors should be set to none on production servers.
+Display Errors should usually be set to none on production servers.
+http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors
 
 ```php
+error_reporting(E_ALL);
 ini_set('display_errors',0);
 ```
 
