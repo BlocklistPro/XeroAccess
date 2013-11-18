@@ -70,14 +70,23 @@ Referer & Useragent Token check
 
 Using Firefox extensions RefControl and UAControl you can set your own tokens for extra authentication.
 
-When using the dynamic IP regex for authentication, at least one of these Token options should be enabled.
+UAControl:
+https://addons.mozilla.org/en-us/firefox/addon/uacontrol/
+
+RefControl:
+https://addons.mozilla.org/en-US/firefox/addon/refcontrol/
+
+If using the dynamic IP regex option for authentication, at least one of these Tokens should be enabled for 'better' security..
+
 
 Basic Setup Instructions
 ------------------------
 
+Most CMS / forums use an index.php front controller, so you should include `xeroaccess.php` at the top of the root index.php file. 
+
 Relative Path :
 
-Place xeroaccess.php in the same directory as the file you want to protect eg : /administrator/index.php
+Place `xeroaccess.php` in the same directory as the file you want to protect eg : /administrator/index.php
 
 ```php
 if( is_readable('xeroaccess.php')) include 'xeroaccess.php';
@@ -95,11 +104,20 @@ include XA_BASEPATH . 'xeroaccess.php';
 }
 ```
 
+Errors : 
+-------
+
+If you want to prevent access to the login page altogther if xeroaccess.php cannot be loaded, change include to require. ( probably not a good idea though :) )
+If you have errors with loading xeroaccess.php more than once, change include to include_once , or require to require_once.
+
+Display Errors should be set to none on production servers.
+
+```php
+ini_set('display_errors',0);
+```
 
 Logging
 -------
 
 Not included yet.
-
-
 
