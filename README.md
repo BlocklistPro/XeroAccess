@@ -3,6 +3,8 @@ XeroAccess
 
 Stealth PHP based Access Control System
 
+Built & tested on PHP 5.3.13
+
 Admin Login Protection
 ======================
 
