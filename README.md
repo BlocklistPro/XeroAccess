@@ -17,7 +17,7 @@ Logging all failed access attempts can help to detect persistent hacking attempt
 Banning IP's 'after' someone attacks the login page is useless since dynamic IP's allow someone to have a new IP just by turning their modem/router off and on. 
 
 
-XeroAccess offers proactive protection, which is the only sane method of dealing with login based attacks. 
+XeroAccess offers proactive protection, which is the only sane method of dealing with attacks and exploits. 
 Reacting to attacks on your website after they've happened means you're always one step behind.
 
 404 Error Response
