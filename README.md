@@ -110,6 +110,7 @@ Errors :
 If you want to prevent access to the login page altogther if xeroaccess.php cannot be loaded, change include to require.( probably not a good idea though :) )
 
 Display Errors should usually be set to none on production servers.
+
 http://www.php.net/manual/en/errorfunc.configuration.php#ini.display-errors
 
 ```php
