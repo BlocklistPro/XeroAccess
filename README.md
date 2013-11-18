@@ -51,7 +51,7 @@ Relative Path :
 Place xeroaccess.php in the same directory as the file you want to protect eg : /administrator/index.php
 
 ```php
-if( is_readable('xeroaccess.php')){ include 'xeroaccess.php'; }
+if( is_readable('xeroaccess.php')) include 'xeroaccess.php';
 ```
 
 Absolute Path :
