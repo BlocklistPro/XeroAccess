@@ -1,12 +1,6 @@
 <?php
 
 /**
- * Report all errors, dont show errors
- */
-error_reporting(E_ALL);
-ini_set('display_errors',0);
-
-/**
  * XeroAccess Kontroller
  * ---------------------
  * A simple access control authorisation system to help protect the Administrator login page 
@@ -16,10 +10,17 @@ ini_set('display_errors',0);
  * 
  */
 
+ 
+/**
+ * Report all errors, dont show errors
+ */
+// error_reporting(E_ALL);
+// ini_set('display_errors',0);
+
 /**
  * Auth Master Key
  */
-
+ 
 $admin_auth = false;
 
 /**
