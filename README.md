@@ -51,20 +51,20 @@ To allow multiple dynamic IP's, just separate each partial IP with an or `|`
 'dynamic_ip_whitelist'  => '#^121\.1\.1\.1[23]|66\.5\.4\.3[1-9]|24\.1\.2\.#' // regex only! - partial ip
 ```
 
-Profile
---------
+User Profile
+------------
 
-The `$profile` array collects all the required information from the user. 
+The `$profile` array contains all the required auth information from the user. 
 
-IP : 
+IP Address Conditions : 
 
-If remote_addr is empty the script will exit. Any access attempts from x_forwarded / proxy headers are automatically denied.
+If `remote_addr` is empty the script will exit silently. Any access attempts with x_forwarded / proxy headers etc are automatically denied.
 
 By default IPv6 connections are also denied. 
 
-UA : 
+UserAgent Conditions : 
 
-If a browser useragent is empty the script will exit.
+If a browser useragent is empty the script will exit silently. 
 
 ```php
 // Visitor Profile
@@ -84,6 +84,12 @@ $profile = array(
               ? strtolower( $_SERVER['HTTP_REFERER'] )
               : '';
 );
+```
+
+By default no error message is returned but you can easily add one if you like to the exit code.
+
+```php
+exit("Access Denied. We don't like you anymore.");
 ```
 
 Request Key Auth Code
