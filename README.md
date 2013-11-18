@@ -10,24 +10,26 @@ XeroAccess was designed to make life difficult for unauthorised users who want a
 by brute forcing or exploiting the administrator login form / login system.
 
 I made this for extra login protection, since the default login directory / page for all the most common CMS / forum scripts ( Joomla, IPB, Vbulletin, Wordpress etc ) 
-are very well known, and by default don't even try to stop hackers from attempting to brute force the login as much / for as long as they like. Logging failed attempts doesn't stop anything.
+are very well known, and by default don't even try to stop hackers from attempting to brute force the login as much / for as long as they like.
+
+Logging all failed access attempts can help to detect persistent hacking attempts, but does nothing to stop them.
 
 Banning IP's 'after' someone attacks the login page is useless since dynamic IP's allow someone to have a new IP just by turning their modem/router off and on. 
 
-XeroAccess offers simple proactive protection, which is the only sane method of dealing with attacks. Reacting to attacks on your website after they've happened means you're always one step behind.
 
-Default Response
-----------------
+XeroAccess offers proactive protection, which is the only sane method of dealing with login based attacks. 
+Reacting to attacks on your website after they've happened means you're always one step behind.
 
-By default, a 404 error is given to anyone who requests the admin login page without the correct url parameters.
+404 Error Response
+------------------
 
-This can easily be changed, but a 404 is the ideal response, since it helps to create confusion and doubt about the existence of the login page, 
+By default, a 404 error is given to anyone who requests the protected page without the correct url parameters.
+
+The error can easily be changed, but a 404 is the ideal response, since it helps to create confusion and doubt about the existence of the login page itself, 
 compared to a 403 which could invite further attempts to gain access. 
 
 With the extra authentication options enabled, a 404 error is also returned if the requesting users IP address is not in the static or dynamic IP whitelist
 or if there are no matching auth tokens in the users referer or useragent, even when the access code is correct. 
-
-Logging all failed access attempts can also help to detect persistent automated hacking attempts.
 
 
 Options
