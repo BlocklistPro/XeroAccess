@@ -74,7 +74,7 @@ UAControl:
 https://addons.mozilla.org/en-us/firefox/addon/uacontrol/
 
 RefControl:
-https://addons.mozilla.org/en-US/firefox/addon/refcontrol/
+https://addons.mozilla.org/en-us/firefox/addon/refcontrol/
 
 If using the dynamic IP regex option for authentication, at least one of these Tokens should be enabled for 'better' security..
 
