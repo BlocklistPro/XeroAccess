@@ -74,22 +74,19 @@ If a browser useragent is empty the script will exit with a 404 error.
 $profile = array(
     
     'ip'   => !empty( $_SERVER['REMOTE_ADDR'] ) 
-              && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) 
+              && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP , FILTER_FLAG_IPV4 ) 
               ? $_SERVER['REMOTE_ADDR'] 
               : ''; 
                  
     'ua'   => !empty( $_SERVER['HTTP_USER_AGENT'] ) 
               ? strtolower( $_SERVER['HTTP_USER_AGENT'] )
-              : exit;
+              : '';
                  
     'ref'  => !empty( $_SERVER['HTTP_REFERER'] ) 
               ? strtolower( $_SERVER['HTTP_REFERER'] )
               : '';
 );
 ```
-
-No error messages should be returned ^ since this is a stealth ninja script and ninja's must be quiet to avoid detection and being eaten by dragons.
-
 
 Request Key Auth Code
 ---------------------
