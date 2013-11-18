@@ -39,10 +39,16 @@ Use the `$axs` options array to configure your settings. Uncomment the extra opt
 $axs = array(
     'request_code'          => 'supersecretcode'
     //, 'static_ip_whitelist'   => array( '121.1.1.2' , '121.1.1.3' ) // full ip's
-    //, 'dynamic_ip_whitelist'  => '#^121\.1\.1\.1[23]#' // regex only! - partial ip
+    //, 'dynamic_ip_whitelist'  => '#^121\.1\.1\.1[23]|#' // regex only! - partial ip
     //, 'referer_token'         => 'ref token'
     //, 'useragent_token'       => 'ua token'
 );
+```
+
+To allow multiple dynamic IP's, just separate each partial IP with an or `|` 
+
+```php
+'dynamic_ip_whitelist'  => '#^121\.1\.1\.1[23]|66\.5\.4\.3[1-9]|24\.1\.2\.#' // regex only! - partial ip
 ```
 
 Request Key Auth Code
