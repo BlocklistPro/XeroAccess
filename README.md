@@ -60,13 +60,13 @@ The `$profile` array contains all the required auth information from the user.
 
 IP Address Conditions : 
 
-If `remote_addr` is empty the script will exit silently. Any access attempts with proxy / X_FORWARDED headers etc are automatically denied.
+If `remote_addr` is empty the script will exit with a 404 error. Any access attempts with proxy / X_FORWARDED headers etc are automatically denied.
 
 By default IPv6 connections are also denied. 
 
 UserAgent Conditions : 
 
-If a browser useragent is empty the script will exit silently. 
+If a browser useragent is empty the script will exit with a 404 error. 
 
 ```php
 // Visitor Profile
@@ -74,9 +74,9 @@ If a browser useragent is empty the script will exit silently.
 $profile = array(
     
     'ip'   => !empty( $_SERVER['REMOTE_ADDR'] ) 
-              && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP, FILTER_VALIDATE_IPV4 ) 
+              && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP, FILTER_FLAG_IPV4 ) 
               ? $_SERVER['REMOTE_ADDR'] 
-              : exit; 
+              : ''; 
                  
     'ua'   => !empty( $_SERVER['HTTP_USER_AGENT'] ) 
               ? strtolower( $_SERVER['HTTP_USER_AGENT'] )
@@ -88,7 +88,7 @@ $profile = array(
 );
 ```
 
-No error messages should be returned ^ since this is a stealth ninja script and ninja's must be quiet to avoid detection.
+No error messages should be returned ^ since this is a stealth ninja script and ninja's must be quiet to avoid detection and being eaten by dragons.
 
 
 Request Key Auth Code
