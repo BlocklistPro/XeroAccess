@@ -3,10 +3,11 @@
 /**
  * XeroAccess Kontroller
  * ---------------------
- * Author : Moore @ blocklistpro.com
  * A simple access control authorisation system to help protect the Administrator login page
  * against unauthorised access - with extra authentication options
+ *
  * http://admin.login.com/administrator/index.php?xscode=supersecretcode
+ *
  */
 
 /**
@@ -17,19 +18,19 @@
 
 function eResponse()
 {
-    if( empty( $_SERVER['SERVER_PROTOCOL'] )){
-        header('HTTP/1.0 404 Not Found');
-    } elseif( preg_match( '#^(HTTP/(0\.9|1\.[01]))\z#' , $_SERVER['SERVER_PROTOCOL'] , $matches )){
+    if( !empty( $_SERVER['SERVER_PROTOCOL'] ) 
+    && preg_match( '#^(HTTP/(0\.9|1\.[01]))\z#' , $_SERVER['SERVER_PROTOCOL'] , $matches )){
         header($matches[0] . ' 404 Not Found');
+    } else {
+        header('HTTP/1.0 404 Not Found');
     }
     // * Add no cache headers
-    echo'<h1>404 Page Not Found</h1>';
+    echo '<h1>404 Page Not Found</h1>';
     echo '<p>The page you requested does not exist on this server</p>';
     // * log errors + count attempts
     // log( 'Unauthorised Access' , $profile );
     exit;
 }
-
 
 /**
  * Auth Master Key
@@ -59,7 +60,8 @@ $axs = array(
 // Only allow IP access from IPv4 - Auto deny IPv6
 $profile = array(
 
-    'ip'  => !empty( $_SERVER['REMOTE_ADDR'] ) && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP , FILTER_FLAG_IPV4 )
+    'ip'  => !empty( $_SERVER['REMOTE_ADDR'] )
+             && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP , FILTER_FLAG_IPV4 )
              ? $_SERVER['REMOTE_ADDR']
              : '',
 
@@ -130,9 +132,9 @@ if( $admin_auth && isset( $axs['dynamic_ip_whitelist'] ))
                 if( !empty( $axs['useragent_token'] ))
                 {
                     if( !stripos( $profile['ua'] , $axs['useragent_token'] )){
-                    // Useragent token match not found - reset auth
-                    $admin_auth = false;
-                }
+                        // Useragent token match not found - reset auth
+                        $admin_auth = false;
+                    }
                 }
             }
 
