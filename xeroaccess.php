@@ -3,9 +3,11 @@
 /**
  * XeroAccess Kontroller
  * ---------------------
+ * Author : Moore @ blocklistpro.com
+ * ---------------------
  * A simple access control authorisation system to help protect the Administrator login page
  * against unauthorised access - with extra authentication options
- *
+ * Example Url : 
  * http://admin.login.com/administrator/index.php?xscode=supersecretcode
  *
  */
@@ -24,8 +26,8 @@ function eResponse()
     } else {
         header('HTTP/1.0 404 Not Found');
     }
-    // * Add no cache headers
-    echo '<h1>404 Page Not Found</h1>';
+    // TODO - Add no cache headers + valid html template
+    echo '<h1>Page Not Found</h1>';
     echo '<p>The page you requested does not exist on this server</p>';
     // * log errors + count attempts
     // log( 'Unauthorised Access' , $profile );
