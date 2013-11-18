@@ -86,11 +86,8 @@ $profile = array(
 );
 ```
 
-By default no error message is returned but you can easily add one if you like to the exit code.
+No error messages should be returned ^ since this is a stealth ninja script and ninjas must be quiet to avoid detection.
 
-```php
-exit("Access Denied. We don't like you anymore.");
-```
 
 Request Key Auth Code
 ---------------------
