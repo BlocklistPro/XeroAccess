@@ -6,7 +6,7 @@ Stealth PHP based Access Control System
 Admin Login Protection
 ======================
 
-XeroAccess was designed to make life difficult for unauthorised users who want access to your admin control panel 
+XeroAccess is a stealth ninja script designed to make life difficult for unauthorised users who want access to your admin control panel 
 by brute forcing or exploiting the administrator login form / login system.
 
 I made this for extra login protection, since the default login directory / page for all the most common CMS / forum scripts ( Joomla, IPB, Vbulletin, Wordpress etc ) 
@@ -14,11 +14,11 @@ are very well known, and by default don't even try to stop hackers from attempti
 
 Logging all failed access attempts can help to detect persistent hacking attempts, but does nothing to stop them.
 
-Banning IP's 'after' someone attacks the login page is useless since dynamic IP's allow someone to have a new IP just by turning their modem/router off and on. 
-
+Banning IP's 'after' someone attacks the login page is useless since dynamic IP's allow someone to have a new IP just by turning their modem/router off and on. Botnets can also give attackers plenty of unique IP's to attack with.
 
 XeroAccess offers proactive protection, which is the only sane method of dealing with attacks and exploits. 
 Reacting to attacks on your website after they've happened means you're always one step behind.
+
 
 404 Error Response
 ------------------
@@ -60,13 +60,13 @@ The `$profile` array contains all the required auth information from the user.
 
 IP Address Conditions : 
 
-If `remote_addr` is empty the script will exit with a 404 error. Any access attempts with proxy / X_FORWARDED headers etc are automatically denied.
+If `REMOTE_ADDR` is empty the script will return a 404 error. Any access attempts with proxy / X_FORWARDED headers etc are automatically denied.
 
 By default IPv6 connections are also denied. 
 
 UserAgent Conditions : 
 
-If a browser useragent is empty the script will exit with a 404 error. 
+If the browser useragent is empty the script will return a 404 error. 
 
 ```php
 // Visitor Profile
