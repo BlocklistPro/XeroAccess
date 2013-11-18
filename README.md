@@ -51,6 +51,41 @@ To allow multiple dynamic IP's, just separate each partial IP with an or `|`
 'dynamic_ip_whitelist'  => '#^121\.1\.1\.1[23]|66\.5\.4\.3[1-9]|24\.1\.2\.#' // regex only! - partial ip
 ```
 
+Profile
+--------
+
+The `$profile` array collects all the required information from the user. 
+
+IP : 
+
+If remote_addr is empty the script will exit. Any access attempts from x_forwarded / proxy headers are automatically denied.
+
+By default IPv6 connections are also denied. 
+
+UA : 
+
+If a browser useragent is empty the script will exit.
+
+```php
+// Visitor Profile
+// Only allow IP access from IPv4 - Auto deny IPv6
+$profile = array(
+    
+    'ip'   => !empty( $_SERVER['REMOTE_ADDR'] ) 
+              && filter_var( $_SERVER['REMOTE_ADDR'] , FILTER_VALIDATE_IP, FILTER_VALIDATE_IPV4 ) 
+              ? $_SERVER['REMOTE_ADDR'] 
+              : exit; 
+                 
+    'ua'   => !empty( $_SERVER['HTTP_USER_AGENT'] ) 
+              ? strtolower( $_SERVER['HTTP_USER_AGENT'] )
+              : exit;
+                 
+    'ref'  => !empty( $_SERVER['HTTP_REFERER'] ) 
+              ? strtolower( $_SERVER['HTTP_REFERER'] )
+              : '';
+);
+```
+
 Request Key Auth Code
 ---------------------
 
